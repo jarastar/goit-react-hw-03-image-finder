@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import searchImages from '../services/api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
@@ -7,7 +6,6 @@ import Button from './Button/Button';
 import Modal from './Modal/Modal';
 import LargeImage from './LargeImage/LargeImage';
 import Loader from './Loader/Loader';
-
 import styles from './App.module.css';
 
 
