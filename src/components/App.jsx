@@ -33,7 +33,7 @@ class App extends Component {
 
   async fetchImages() {
     try {
-      const { images, search, page, total } = this.state;
+      const { search, page, total } = this.state;
       const response = await searchImages(search, page, total);
 
       const imagesInfo = response.hits.map(
@@ -49,7 +49,7 @@ class App extends Component {
 
       const totalImgs = response.totalHits;
 
-      this.setState({ images: [...images, ...imagesInfo], total: totalImgs });
+      this.setState(prevState => ({ images: [...prevState.images, ...imagesInfo], total: totalImgs }));
     } catch (error) {
       this.setState({ error: error.message });
     } finally {
@@ -62,8 +62,7 @@ class App extends Component {
   };
 
   onLoadMore = () => {
-    const { page } = this.state;
-    this.setState({ page: page + 1 });
+     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
   onModalOpen = ({ largeImg, alt }) => {
